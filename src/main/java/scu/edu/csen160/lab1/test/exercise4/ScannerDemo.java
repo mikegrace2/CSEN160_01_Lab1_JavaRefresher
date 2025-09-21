@@ -28,4 +28,25 @@ public class ScannerDemo{
 		
 		in.close();
 	}
+
+    public void setAnInteger(int i) {
+    }
+
+    public void setaFloat(float v) {
+    }
+
+    public void setaDoubleNumber(double v) {
+    }
+
+    public int getAnInteger() {
+        return -1;
+    }
+
+    public float getaFloat() {
+        return -1F;
+    }
+
+    public double getaDoubleNumber() {
+        return -0.0;
+    }
 }

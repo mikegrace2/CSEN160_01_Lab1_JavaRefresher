@@ -1,7 +1,7 @@
 package scu.edu.csen160.lab1.test.exercise3;
 
 public class PatternMaker {
-    public static void drawOneLine(char symbol, int noOfTimes, int
+    public static String drawOneLine(char symbol, int noOfTimes, int
             offset){
         // Write Java code to draw the symbol for the noOfTimes
         // after drawing a number of blankspaces (offset) .
@@ -14,8 +14,9 @@ public class PatternMaker {
         // spaces. Use System.out.print(" ") to print a single
         // blank space. Write a for – loop to draw the symbol,
         // the noOfTimes.
+        return null;
     }
-    public static void drawPattern() {
+    public static String drawPattern() {
         // This method should draw the following pattern:
         // 1. line, should have 4 blank spaces followed by 4 stars.
         // 2. line will have 8 blank spaces followed by 8 stars.
@@ -25,5 +26,6 @@ public class PatternMaker {
         // ************
         // The method should call the method, drawOneLine()
         //
+        return null;
     }
 }

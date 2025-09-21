@@ -1,7 +1,7 @@
 package scu.edu.csen160.lab1.test.exercise5;
 
 public class Exercise5 {
-	public static void isItALeapYear(int year){
+	public static boolean isItALeapYear(int year){
 		// This method should check if the parameter year is a leap year and return a true.
 		// Otherwise a false.
 
@@ -9,5 +9,6 @@ public class Exercise5 {
 		// it is divisible by 400.
 
 		// Complete the code segment. Fix any errors in the method signature.
+        return false;
 	}
 }
