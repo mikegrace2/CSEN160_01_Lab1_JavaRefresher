@@ -1,0 +1,100 @@
+name: Autograding Tests
+
+on:
+  - push
+  - workflow_dispatch
+  - repository_dispatch
+
+permissions:
+  contents: read
+  checks: write
+  actions: read
+
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Verify Java & Maven
+        run: |
+          java -version
+          mvn -v
+
+      - name: Exercise1
+        id: exercise1
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: Exercise1
+          command: mvn -q -Dtest=scu.edu.csen160.lab1.test.AllExercisesTest#testExercise1 test
+          timeout: 60
+          max-score: 1
+
+      - name: Exercise2
+        id: exercise2
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: Exercise2
+          command: mvn -q -Dtest=scu.edu.csen160.lab1.test.AllExercisesTest#testExercise2 test
+          timeout: 60
+          max-score: 1
+
+      - name: Exercise3
+        id: exercise3
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: Exercise3
+          command: mvn -q -Dtest=scu.edu.csen160.lab1.test.AllExercisesTest#testExercise3 test
+          timeout: 60
+          max-score: 1
+
+      - name: Exercise4
+        id: exercise4
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: Exercise4
+          command: mvn -q -Dtest=scu.edu.csen160.lab1.test.AllExercisesTest#testExercise4 test
+          timeout: 60
+          max-score: 1
+
+      - name: Exercise5
+        id: exercise5
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: Exercise5
+          command: mvn -q -Dtest=scu.edu.csen160.lab1.test.AllExercisesTest#testExercise5 test
+          timeout: 60
+          max-score: 1
+
+      - name: Exercise6
+        id: exercise6
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: Exercise6
+          command: mvn -q -Dtest=scu.edu.csen160.lab1.test.AllExercisesTest#testExercise6 test
+          timeout: 60
+          max-score: 1
+
+      - name: Exercise7
+        id: exercise7
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: Exercise7
+          command: mvn -q -Dtest=scu.edu.csen160.lab1.test.AllExercisesTest#testExercise7 test
+          timeout: 60
+          max-score: 1
+
+      - name: Autograding Reporter
+        uses: classroom-resources/autograding-grading-reporter@v1
+        env:
+          EXERCISE1_RESULTS: "${{ steps.exercise1.outputs.result }}"
+          EXERCISE2_RESULTS: "${{ steps.exercise2.outputs.result }}"
+          EXERCISE3_RESULTS: "${{ steps.exercise3.outputs.result }}"
+          EXERCISE4_RESULTS: "${{ steps.exercise4.outputs.result }}"
+          EXERCISE5_RESULTS: "${{ steps.exercise5.outputs.result }}"
+          EXERCISE6_RESULTS: "${{ steps.exercise6.outputs.result }}"
+          EXERCISE7_RESULTS: "${{ steps.exercise7.outputs.result }}"
+        with:
+          runners: exercise1,exercise2,exercise3,exercise4,exercise5,exercise6,exercise7
